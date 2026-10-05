@@ -147,6 +147,7 @@ Every concept has one canonical home, on the class that owns its data.
 - **No free functions outside a class.** Put a helper on the class that owns its data; a file-local `static` helper is acceptable only in test files.
 - **One home per concept; consolidate duplicates.** When the same logic exists as several copied free functions, collapse it into one method on the owning class.
 - **Reuse existing APIs; do not reinvent.** Know the wider codebase before adding code: do not build a new abstraction layer when an existing identifier already does the job, or a new helper when an equivalent query already exists.
+- **No ad-hoc helper types.** Do not declare a file-local, anonymous-namespace or function-local struct (such as `range_t` or `pair_t`) just to bundle a few values inside one translation unit. A record either names a real concept, and then it is a type in the header that owns the concept, reused wherever that concept appears; or it does not, and the code keeps plain locals or an existing type instead.
 - **Place by ownership.** Backend-agnostic data and logic live in the base class; backend-specific logic lives in the matching derived class; domain constants live on the class that defines that domain.
 - **Enums are append-only.** When an enum's numeric value serves as an ID, extend it only at the end; never insert in the middle.
 
