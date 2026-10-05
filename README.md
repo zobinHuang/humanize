@@ -4,12 +4,20 @@ A collection of coding conventions that steer code agents toward code a careful 
 
 ## Usage
 
-Clone the repository, then reference the conventions you need from your project's agent instruction file (`CLAUDE.md`, `AGENTS.md`, etc.):
+Add the repository as a submodule of your project:
+
+```bash
+git submodule add https://github.com/zobinHuang/humanize.git humanize
+```
+
+Then reference the conventions you need from your project's agent instruction file (`CLAUDE.md`, `AGENTS.md`, etc.):
 
 ```markdown
-@path/to/humanize/cpp-coding-conventions.md
-@path/to/humanize/git-conventions.md
+@humanize/cpp-coding-conventions.md
+@humanize/git-conventions.md
 ```
+
+Pull the latest conventions with `git submodule update --remote humanize`.
 
 | File | Topic |
 |---|---|
