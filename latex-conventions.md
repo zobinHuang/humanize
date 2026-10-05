@@ -62,3 +62,19 @@ A paragraph makes one point.
 - **At most 6 sentences per paragraph.** A longer paragraph is split at its natural break.
 - **Open with the point.** The first sentence states what the paragraph argues; the rest support it.
 - **Separate paragraphs with a blank line** in the source, never with `\\` or `\newline`.
+
+## 6. Captions
+
+A caption is a title, not a description.
+
+- **State what is shown in a short phrase.** A figure, table or list caption names its content and nothing more.
+- **Do not explain the structure.** No walkthrough of panels, bars, lines, rows, columns, colours or markers, and no definitions of the quantities shown.
+- **Move what the reader needs into the body.** Definitions, footnote markers and caveats go in the text that references the figure or table, or in axis labels and column headers.
+
+```latex
+% Bad
+\caption{Cost per clip. Panel (a) compares layouts on a log scale. The dark bar is our system. Rows marked with an asterisk are estimated.}
+
+% Good
+\caption{Cost per clip.}
+```
