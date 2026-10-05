@@ -18,10 +18,3 @@ Then reference the conventions you need from your project's agent instruction fi
 ```
 
 Pull the latest conventions with `git submodule update --remote humanize`.
-
-| File | Topic |
-|---|---|
-| [cpp-coding-conventions.md](cpp-coding-conventions.md) | C++ |
-| [python-coding-conventions.md](python-coding-conventions.md) | Python |
-| [git-conventions.md](git-conventions.md) | Commit messages and boundaries |
-| [readme-conventions.md](readme-conventions.md) | README structure |
