@@ -14,7 +14,8 @@ A comment states business or algorithm semantics, never language mechanics.
 
 - **Domain semantics only.** Say what the code does in domain terms. Do not explain language mechanics ("copy first so the caller's list isn't mutated"), a style rule, or why you chose a construct.
 - **No multi-line prose inside function bodies.** A one-line `#` label for a step is fine; a run of two or three `#` lines explaining a branch chain is not. When in doubt, delete it: self-explanatory code needs no prose.
-- **The docstring is the declaration.** Every public module, class, function and method carries a docstring; it may span several lines. Use Google style (`Args:`, `Returns:`, `Raises:`). Private helpers carry a one-line docstring or none.
+- **No file header comment.** A file begins directly with code: no module docstring, license banner or leading `#` lines.
+- **The docstring is the declaration.** Every public class, function and method carries a docstring; it may span several lines. Use Google style (`Args:`, `Returns:`, `Raises:`). Private helpers carry a one-line docstring or none.
 - **Type hints are part of the declaration.** Every function signature is fully annotated, so the docstring does not repeat types.
 
 ```python
@@ -103,6 +104,14 @@ list_window.append(
 list_window.sort(
     key=lambda window: window.start_time,
 )
+```
+
+**Imports:** one contiguous block at the top of the file, with no blank lines between the standard-library, third-party and first-party groups.
+
+```python
+import math
+import torch
+from project.error import ProjectError
 ```
 
 **Multi-condition `if` / `while`:** parenthesised, one condition per line, the operator leading each continuation line.

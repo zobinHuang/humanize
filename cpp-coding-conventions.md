@@ -14,6 +14,7 @@ A comment states business or algorithm semantics, never language mechanics.
 
 - **Domain semantics only.** Say what the code does in domain terms. Do not explain language mechanics ("declared up front so goto can't skip the init"), a style rule, or why you chose a construct.
 - **No multi-line prose inside function bodies.** A one-line `//` label for a step is fine; a two- or three-line paragraph explaining a branch chain is not. When in doubt, delete it: self-explanatory code needs no prose.
+- **No file header comment.** A file begins directly with code (`#pragma once` or the first `#include`): no license banner, file description or Doxygen `\file` block.
 - **Declarations carry doc comments; definitions do not.** Header declarations use Doxygen (`\brief`, `\param`, `\return`). Function definitions in `.cpp` files carry no function-header comment.
 - **Python follows the same rules.** Comments and docstrings state domain semantics, and a function body has no run of `#` prose lines: one line, or the docstring. A docstring is the declaration and may span several lines.
 
