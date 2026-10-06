@@ -164,6 +164,14 @@ A page is designed for every width it can be shown at, not for the one it was wr
 }
 ```
 
+### 7.5 Writing
+
+Page text follows the same rules as the [LaTeX Writing Conventions](latex-conventions.md#7-headings) for headings, tone and framing.
+
+- **Headings name the topic in plain words.** No cryptic or clever headings such as "Two caches, two shared parts"; write the subject, e.g. "Sharing the L2 and the last-level cache across cores".
+- **Support claims with evidence.** No preaching ("clearly", "it is crucial to understand", "you must"); support every claim with a number, a citation, a demo or a screenshot, and let the reader draw the conclusion.
+- **No "not X, but Y".** Constructions such as "it is not a tool, it is a platform" or "rather than A, it does B" are replaced by a direct statement of what the thing is.
+
 ## 8. Changing Code That Predates These Rules
 
 When you touch a page or a component, bring it into line.
