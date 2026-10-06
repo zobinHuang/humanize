@@ -183,6 +183,52 @@ Page text follows the same rules as the [LaTeX Writing Conventions](latex-conven
 - **Support claims with evidence.** No preaching ("clearly", "it is crucial to understand", "you must"); support every claim with a number, a citation, a demo or a screenshot, and let the reader draw the conclusion.
 - **No "not X, but Y".** Constructions such as "it is not a tool, it is a platform" or "rather than A, it does B" are replaced by a direct statement of what the thing is.
 
+### 7.6 Numbered, Linkable Headings
+
+Every section heading carries an index number and can be reached with a `#` link.
+
+- **Number every section heading.** `h2` headings are numbered `1`, `2`, `3`; `h3` headings under them `1.1`, `1.2`; and so on down the levels in use. The page title (`h1`) is not numbered.
+- **Generate the numbers.** Numbers come from CSS counters or the build step, never typed into the heading text, so inserting a section renumbers the rest.
+- **Every heading has an `id`.** The `id` is a stable `kebab-case` slug of the heading text (`#cache-sharing`), not of its number, so links survive renumbering.
+- **Expose the link.** Each heading carries a `#` anchor that links to its own `id`, shown on hover and focus, so a reader can copy a deep link to any section.
+- **Land below sticky bars.** Headings set `scroll-margin-top` to the height of any fixed header, so a `#` link does not hide the heading under it.
+
+```html
+<h2 id="cache-sharing">
+    Cache sharing across cores
+    <a
+        class="heading-anchor"
+        href="#cache-sharing"
+        aria-label="Link to this section"
+    >#</a>
+</h2>
+```
+
+```css
+main {
+    counter-reset: section;
+}
+
+main h2 {
+    counter-increment: section;
+    counter-reset: subsection;
+    scroll-margin-top: var(--space-header);
+}
+
+main h2::before {
+    content: counter(section) ". ";
+}
+
+main h3 {
+    counter-increment: subsection;
+    scroll-margin-top: var(--space-header);
+}
+
+main h3::before {
+    content: counter(section) "." counter(subsection) " ";
+}
+```
+
 ## 8. Changing Code That Predates These Rules
 
 When you touch a page or a component, bring it into line.
