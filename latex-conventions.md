@@ -78,3 +78,47 @@ A caption is a title, not a description.
 % Good
 \caption{Cost per clip.}
 ```
+
+## 7. Headings
+
+A heading tells the reader what the section is about.
+
+- **Name the topic in plain words.** A section or paragraph heading states its subject concretely, so a reader skimming the outline knows what each part covers.
+- **No cryptic or clever headings.** Phrases such as "Two caches, two shared parts" or "One more thing" make the reader decode the heading before reading the section. Write the subject instead.
+
+```latex
+% Bad
+\section{Two caches, two shared parts}
+
+% Good
+\section{Sharing the L2 and the last-level cache across cores}
+```
+
+## 8. Support Claims with Evidence
+
+A claim is supported by data, citations or reasoning the reader can check.
+
+- **No preaching.** Do not tell the reader what to think or feel: no "clearly", "obviously", "it is crucial to understand", "we must", "one should recognize".
+- **Show the evidence.** Replace an insistence with the measurement, citation or derivation behind it, and let the reader draw the conclusion.
+
+```latex
+% Bad
+Clearly, static partitioning is a fundamentally flawed approach that the community must abandon.
+
+% Good
+Static partitioning leaves 38\% of the cache idle on the mixed workload (Figure~4).
+```
+
+## 9. No Contrastive Framing
+
+Do not write the "not X, but Y" pattern.
+
+- **State Y directly.** Constructions such as "X is not A, but B", "this is not about A; it is about B" or "rather than A, it does B" set up a claim nobody made in order to knock it down. Say what the thing is.
+
+```latex
+% Bad
+The bottleneck is not computation, but memory bandwidth.
+
+% Good
+The bottleneck is memory bandwidth: the kernel reaches 92\% of peak DRAM throughput and 18\% of peak FLOPs.
+```
