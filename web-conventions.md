@@ -112,6 +112,7 @@ A page reads like a printed page: serif type, black and white, no decoration tha
 - **White background, black text.** The light scheme is black text on a white background.
 - **Black background, white text in dark mode.** The dark scheme inverts it, driven by `prefers-color-scheme`.
 - **Neutral greys are allowed.** Greys between black and white may mark secondary text, hairline rules and chart fills; each is a token, and dark mode redefines it.
+- **Code sits on a grey background.** Every `code` element, inline or inside a `pre` block, has a light grey background with black text; in dark mode it has a dark grey background with off-white text. Both are tokens, so no code block falls back to the page background.
 - **No other colours.** No hue anywhere: no accent colours, coloured backgrounds, gradients or tinted cards. Links are distinguished by an underline, not by colour.
 
 ```css
@@ -120,6 +121,8 @@ A page reads like a printed page: serif type, black and white, no decoration tha
     --color-text: #000000;
     --color-muted: #666666;
     --color-rule: #dddddd;
+    --color-code-background: #f2f2f2;
+    --color-code-text: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -128,7 +131,15 @@ A page reads like a printed page: serif type, black and white, no decoration tha
         --color-text: #ffffff;
         --color-muted: #999999;
         --color-rule: #333333;
+        --color-code-background: #262626;
+        --color-code-text: #e6e6e6;
     }
+}
+
+code,
+pre {
+    background: var(--color-code-background);
+    color: var(--color-code-text);
 }
 ```
 
