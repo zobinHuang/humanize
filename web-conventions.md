@@ -111,18 +111,23 @@ A page reads like a printed page: serif type, black and white, no decoration tha
 
 - **White background, black text.** The light scheme is black text on a white background.
 - **Black background, white text in dark mode.** The dark scheme inverts it, driven by `prefers-color-scheme`.
-- **No other colours.** No accent colours, coloured backgrounds, gradients or tinted cards. Links are distinguished by an underline, not by colour.
+- **Neutral greys are allowed.** Greys between black and white may mark secondary text, hairline rules and chart fills; each is a token, and dark mode redefines it.
+- **No other colours.** No hue anywhere: no accent colours, coloured backgrounds, gradients or tinted cards. Links are distinguished by an underline, not by colour.
 
 ```css
 :root {
     --color-background: #ffffff;
     --color-text: #000000;
+    --color-muted: #666666;
+    --color-rule: #dddddd;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --color-background: #000000;
         --color-text: #ffffff;
+        --color-muted: #999999;
+        --color-rule: #333333;
     }
 }
 ```
