@@ -1,0 +1,137 @@
+# Web Conventions
+
+## 0. Scope and General Principles
+
+These conventions govern all first-party web pages in the codebase (sites, documentation pages, dashboards and reports): their HTML and CSS source, and the content they present. Scripts follow the [TypeScript Coding Conventions](typescript-coding-conventions.md); where a rule here has a counterpart there, the two read the same.
+
+- **Third-party code is out of scope.** Vendored libraries, generated bundles and framework scaffolding must not be reformatted, so they can be regenerated or re-synced with upstream.
+- **These rules win over local habit.** Where an older page's own style disagrees, follow this document (see [Section 8](#8-changing-code-that-predates-these-rules)).
+
+## 1. Comments
+
+A comment states what a block is for in domain terms, never language mechanics.
+
+- **Domain semantics only.** `<!-- pricing table -->` or `/* footer */` labels a region; do not explain the cascade, a browser quirk you worked around, or why you chose a selector.
+- **No multi-line prose.** A one-line label is fine; a paragraph inside a stylesheet or a template is not.
+- **No file header comment.** A file begins directly with code (`<!doctype html>` or the first rule): no license banner, file description or author block.
+
+## 2. HTML
+
+Markup states what the content is; styling and behaviour live elsewhere.
+
+- **Semantic elements first.** Use `header`, `nav`, `main`, `article`, `section`, `footer`, `button` and `a` for what they mean; a `div` with a click handler is not a button.
+- **One `h1` per page,** and headings descend without skipping levels.
+- **Every page declares `lang`, `charset` and `viewport`.**
+- **Every meaningful image has `alt` text;** a decorative image has `alt=""`.
+- **No inline `style` attributes and no inline event handlers** (`onclick` and the like). Styles go in the stylesheet, behaviour in the script.
+
+## 3. CSS
+
+Every value with meaning is a named token, defined once.
+
+- **Tokens on `:root`.** Colours, font families, font sizes, spacing and breakpoints are custom properties on `:root`; rules reference the tokens, never raw values. This is the CSS form of "no magic numbers".
+- **Class selectors only.** No ID selectors and no element selectors for component styling; element selectors are for the base reset.
+- **Flat selectors.** At most two levels of nesting or descendant combinators; a deeper selector means the markup needs a class.
+- **No `!important`.** Fix the specificity instead.
+- **Relative units.** Font sizes and spacing in `rem`; `px` only for hairlines such as a `1px` border.
+- **Mobile first.** Base rules target the narrowest screen; `min-width` media queries add to them. No page scrolls horizontally on a phone.
+
+## 4. Multi-line Formatting
+
+Any element with several attributes, rule with several declarations, or selector list is fully expanded, one item per line.
+
+**Elements with more than two attributes:** one attribute per line.
+
+```html
+<a
+    class="nav-link"
+    href="/papers/"
+    aria-current="page"
+>Papers</a>
+```
+
+**Rules:** one declaration per line, one selector per line.
+
+```css
+.card-title,
+.section-title {
+    font-family: var(--font-title);
+    font-size: var(--size-title);
+    margin-block-end: var(--space-2);
+}
+```
+
+## 5. Naming
+
+A name tells the reader what the element is, not what it looks like.
+
+| Item | Rule | Example |
+|---|---|---|
+| Classes | `kebab-case`, named by role | `nav-link`, `paper-card` |
+| Custom properties | `--<category>-<role>` | `--color-text`, `--font-title`, `--space-2` |
+| Files | `kebab-case` | `paper-list.html`, `site.css` |
+
+- **Name by role, not appearance.** `paper-card`, not `white-box`; `section-title`, not `big-serif`.
+- **Descriptive full words, not terse abbreviations.** `navigation-menu` or `nav-menu`, not `nm`.
+
+## 6. Structure and Placement
+
+Every style has one canonical home.
+
+- **One home per component.** A component's rules live together in one place; do not scatter overrides for it across page stylesheets.
+- **Reuse tokens and components; do not reinvent.** Before adding a rule, check whether an existing class or token already does the job.
+- **No ad-hoc utility classes.** Do not invent one-off helpers such as `.mt-13` or `.red-text` for a single element; give the element a role class and style that.
+- **No logic in markup.** Templates render data; they do not compute it.
+
+## 7. Content and Presentation
+
+A page reads like a printed page: serif type, black and white, no decoration that imitates a terminal or a dashboard.
+
+### 7.1 Typography
+
+- **Titles are set in Instrument Serif.** The site title, page titles and every heading (`h1` to `h6`) use `Instrument Serif`, site-wide, with no exceptions per page.
+- **Body text is set in Crimson Text.** Paragraphs, lists, captions, navigation, buttons and form controls use `Crimson Text`.
+- **No mechanical fonts.** No monospace, geometric sans or "technical" display faces (such as JetBrains Mono, Space Grotesk or Space Mono) for headings, labels, numbers or body text. Monospace is allowed only inside `code` and `pre` for literal source code.
+- **Load the two fonts once** from Google Fonts and expose them as tokens, with a serif fallback.
+
+```css
+:root {
+    --font-title: "Instrument Serif", Georgia, serif;
+    --font-body: "Crimson Text", Georgia, serif;
+}
+```
+
+### 7.2 No All-caps Side Marks
+
+- **No small uppercase labels.** Do not put an all-caps, small, letter-spaced label above or beside content as a marker (an "eyebrow" such as `FEATURES`, `NEW`, `SECTION 02`).
+- **No uppercase styling to fake one.** No `text-transform: uppercase`, `font-variant: small-caps` or wide `letter-spacing` on small text.
+- **Say it in the heading or drop it.** If the label carries meaning, fold it into the heading in sentence case; otherwise delete it.
+
+### 7.3 Colour
+
+- **White background, black text.** The light scheme is black text on a white background.
+- **Black background, white text in dark mode.** The dark scheme inverts it, driven by `prefers-color-scheme`.
+- **No other colours.** No accent colours, coloured backgrounds, gradients or tinted cards. Links are distinguished by an underline, not by colour.
+
+```css
+:root {
+    --color-background: #ffffff;
+    --color-text: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: #000000;
+        --color-text: #ffffff;
+    }
+}
+```
+
+## 8. Changing Code That Predates These Rules
+
+When you touch a page or a component, bring it into line.
+
+- **The house rules win; local consistency does not excuse a violation.** A stylesheet with seventeen hard-coded colours has seventeen violations, not a palette of its own.
+- **Fix neighbours that share the same violation.** Leaving one fixed component beside unfixed ones on the same page leaves the page with two styles instead of one.
+- **A class rename crosses into scripts and templates.** Search for the old name in `querySelector` strings, `classList` calls and templates; none of these fail to build, they fail late or quietly stop matching.
+- **Check the page, not just the source.** Load it in both colour schemes and at phone width before calling a change done.
