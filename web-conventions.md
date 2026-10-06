@@ -132,6 +132,38 @@ A page reads like a printed page: serif type, black and white, no decoration tha
 }
 ```
 
+### 7.4 Every Screen Size
+
+A page is designed for every width it can be shown at, not for the one it was written on.
+
+- **Text scales with the screen.** Font sizes, line height and letter spacing are tokens that change at breakpoints or through `clamp()`; body text never drops below a comfortable reading size on a phone, and lines stay within roughly 60 to 80 characters on a wide screen.
+- **Spacing between widgets scales too.** Gaps, padding and margins between cards, sections and controls come from spacing tokens redefined per breakpoint, so a layout neither crowds on a phone nor floats apart on a wide monitor.
+- **Layouts reflow, they do not shrink.** Multi-column layouts collapse to fewer columns on narrow screens; nothing is scaled down as a whole, clipped, or pushed off the side.
+- **Animations are tuned per size.** Distances, durations and parallax depth that suit a desktop are reduced on small screens; no animation causes horizontal overflow or a layout jump. Every animation is disabled or reduced under `prefers-reduced-motion`.
+- **Touch targets are at least `44px`** on touch screens, with enough space between them that a thumb does not hit the neighbour.
+- **Verify at four widths.** Check every page at a phone (`375px`), a tablet (`768px`), a laptop (`1280px`) and a wide monitor (`1920px`), in both colour schemes.
+
+```css
+:root {
+    --size-body: clamp(1.0625rem, 0.95rem + 0.5vw, 1.25rem);
+    --space-section: 2.5rem;
+    --motion-distance: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --space-section: 4rem;
+        --motion-distance: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --motion-distance: 0;
+    }
+}
+```
+
 ## 8. Changing Code That Predates These Rules
 
 When you touch a page or a component, bring it into line.
@@ -139,4 +171,4 @@ When you touch a page or a component, bring it into line.
 - **The house rules win; local consistency does not excuse a violation.** A stylesheet with seventeen hard-coded colours has seventeen violations, not a palette of its own.
 - **Fix neighbours that share the same violation.** Leaving one fixed component beside unfixed ones on the same page leaves the page with two styles instead of one.
 - **A class rename crosses into scripts and templates.** Search for the old name in `querySelector` strings, `classList` calls and templates; none of these fail to build, they fail late or quietly stop matching.
-- **Check the page, not just the source.** Load it in both colour schemes and at phone width before calling a change done.
+- **Check the page, not just the source.** Load it in both colour schemes and at the four widths of [Section 7.4](#74-every-screen-size) before calling a change done.
