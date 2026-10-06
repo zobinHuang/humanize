@@ -34,6 +34,7 @@ Every value with meaning is a named token, defined once.
 - **Flat selectors.** At most two levels of nesting or descendant combinators; a deeper selector means the markup needs a class.
 - **No `!important`.** Fix the specificity instead.
 - **Relative units.** Font sizes and spacing in `rem`; `px` only for hairlines such as a `1px` border.
+- **Layout in proportions.** The widths of columns, sidebars, panels and the text column are shares of the screen or of their container (`%`, `fr`, `vw`), so a layout keeps its proportions from a laptop to a wide monitor. A fixed length may only bound a proportion, such as `max(12rem, 16%)`, so content still fits on a narrow screen; a width is never a fixed `px` or `rem` length alone.
 - **Mobile first.** Base rules target the narrowest screen; `min-width` media queries add to them. No page scrolls horizontally on a phone.
 
 ## 4. Multi-line Formatting
@@ -147,8 +148,9 @@ pre {
 
 A page is designed for every width it can be shown at, not for the one it was written on.
 
-- **Text scales with the screen.** Font sizes, line height and letter spacing are tokens that change at breakpoints or through `clamp()`; body text never drops below a comfortable reading size on a phone, and lines stay within roughly 60 to 80 characters on a wide screen.
+- **Text scales with the screen.** Font sizes, line height and letter spacing are tokens that change at breakpoints or through `clamp()`; body text never drops below a comfortable reading size on a phone.
 - **Spacing between widgets scales too.** Gaps, padding and margins between cards, sections and controls come from spacing tokens redefined per breakpoint, so a layout neither crowds on a phone nor floats apart on a wide monitor.
+- **Graphics keep their shape.** A chart or diagram drawn in script takes its width from its container and its height as a share of that width, with a floor so its labels still fit; it never fixes its overall size in pixels. Details tied to the label text, such as tick gaps and legend swatches, stay at text size.
 - **Layouts reflow, they do not shrink.** Multi-column layouts collapse to fewer columns on narrow screens; nothing is scaled down as a whole, clipped, or pushed off the side.
 - **Animations are tuned per size.** Distances, durations and parallax depth that suit a desktop are reduced on small screens; no animation causes horizontal overflow or a layout jump. Every animation is disabled or reduced under `prefers-reduced-motion`.
 - **Touch targets are at least `44px`** on touch screens, with enough space between them that a thumb does not hit the neighbour.
@@ -157,6 +159,7 @@ A page is designed for every width it can be shown at, not for the one it was wr
 ```css
 :root {
     --size-body: clamp(1.0625rem, 0.95rem + 0.5vw, 1.25rem);
+    --width-sidebar: max(12rem, 16%);
     --space-section: 2.5rem;
     --motion-distance: 0.5rem;
 }
