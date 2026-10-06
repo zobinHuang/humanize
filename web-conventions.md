@@ -229,6 +229,22 @@ main h3::before {
 }
 ```
 
+### 7.7 Figure Titles
+
+Every figure has a title, and the title is a short phrase that sums it up.
+
+- **Every figure has a title.** Charts, diagrams, screenshots and tables sit in a `figure` with a `figcaption`; no figure appears without one.
+- **The title is brief.** It names what is shown in a few words, the way the [LaTeX caption rule](latex-conventions.md#6-captions) does.
+- **No walkthrough in the title.** No explanation of panels, bars, lines, colours or markers, and no definitions of the quantities shown; those go in the surrounding text, axis labels or column headers.
+
+```html
+<!-- Bad -->
+<figcaption>Cost per clip. The left panel compares layouts on a log scale; the dark bar is our system and starred rows are estimated.</figcaption>
+
+<!-- Good -->
+<figcaption>Cost per clip</figcaption>
+```
+
 ## 8. Changing Code That Predates These Rules
 
 When you touch a page or a component, bring it into line.
