@@ -248,6 +248,31 @@ Every figure has a title, and the title is a short phrase that sums it up.
 <figcaption>Cost per clip</figcaption>
 ```
 
+### 7.8 No Middle-dot Separators
+
+Items shown side by side are told apart by layout, not by a dot between them.
+
+- **No `·` anywhere.** Do not join items with a middle dot, as in `Ada Lovelace · 8 October 2026` or `Docs · Blog · About`; this holds for bylines, metadata, navigation, footers and the browser tab title alike.
+- **No stand-in separators either.** No `•`, `|`, `/` or `—` placed between items to do the same job.
+- **Lay out the items instead.** Give each item its own element and separate them with spacing, a hairline rule or a labelled field; in a title, use the words of a sentence or drop the extra part.
+
+```html
+<!-- Bad -->
+<p class="byline">Ada Lovelace · 8 October 2026 · 5 min read</p>
+
+<!-- Good -->
+<dl class="byline">
+    <div class="byline-field">
+        <dt>Author</dt>
+        <dd>Ada Lovelace</dd>
+    </div>
+    <div class="byline-field">
+        <dt>Updated</dt>
+        <dd><time datetime="2026-10-08">8 October 2026</time></dd>
+    </div>
+</dl>
+```
+
 ## 8. Changing Code That Predates These Rules
 
 When you touch a page or a component, bring it into line.
