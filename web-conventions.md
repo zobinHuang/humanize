@@ -88,6 +88,8 @@ Every style has one canonical home.
 
 A page reads like a printed page: serif type, black and white, no decoration that imitates a terminal or a dashboard.
 
+- **An explicit user request wins.** The typography and colour rules below are the default style. When the user explicitly asks for other fonts or colours, follow the request for what it covers and keep the defaults for everything else.
+
 ### 7.1 Typography
 
 - **Titles are set in Instrument Serif.** The site title, page titles and every heading (`h1` to `h6`) use `Instrument Serif`, site-wide, with no exceptions per page.
