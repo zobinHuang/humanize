@@ -74,24 +74,13 @@ state = self._model().get_state_at(
 )
 ```
 
-**Positional-only calls:** when the callee does not take keywords (a C extension or driver binding, a builtin), each argument ends with a trailing `# parameter-name` comment naming the callee's parameter it binds. The comments are aligned, and name the parameter even when the argument is a variable of the same name.
+**Positional-only calls:** when the callee does not take keywords (a foreign function loaded through `ctypes`, a builtin), each argument ends with a trailing `# parameter-name` comment naming the callee's parameter it binds. The comments are aligned, and name the parameter even when the argument is a variable of the same name. Try keywords first: many bindings, Cython ones included, do accept them, and then the call takes keywords instead.
 
 ```python
-driver.cuLaunchKernel(
-    function,      # f
-    grid,          # gridDimX
-    1,             # gridDimY
-    1,             # gridDimZ
-    block,         # blockDimX
-    1,             # blockDimY
-    1,             # blockDimZ
-    shared_bytes,  # sharedMemBytes
-    0,             # hStream
-    (              # kernelParams
-        tuple_value,
-        tuple_ctype,
-    ),
-    0,             # extra
+libcuda.cuMemcpyHtoD_v2(
+    device_pointer,  # dstDevice
+    host_buffer,     # srcHost
+    nb_bytes,        # ByteCount
 )
 ```
 
