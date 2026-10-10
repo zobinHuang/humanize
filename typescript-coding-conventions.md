@@ -80,6 +80,16 @@ const state = this._model().get_state_at({
 });
 ```
 
+**Positional calls into external APIs:** where a callee the codebase does not own takes positional arguments, each argument carries a leading `/* parameter-name */` label naming the parameter it binds, aligned, as in C++.
+
+```ts
+context.drawImage(
+    /* image */   sprite,
+    /* dx */      position.x,
+    /* dy */      position.y,
+);
+```
+
 **Long signatures:** one parameter per line.
 
 ```ts

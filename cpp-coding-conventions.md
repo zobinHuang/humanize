@@ -60,15 +60,33 @@ exit:
 
 Any multi-argument call, long signature, aggregate initialization or multi-condition test is fully expanded, one item per line.
 
-**Calls wrapped in error handling:** the wrapped call and the recovery block are both expanded.
+**Calls:** one argument per line, each with a leading `/* parameter-name */` label naming the callee's parameter it binds, so a positional argument reads without opening the callee. The labels are aligned. The label names the parameter even when the argument is a variable of the same name.
+
+```cpp
+result = cuLaunchKernel(
+    /* f */                function,
+    /* gridDimX */         grid,
+    /* gridDimY */         1,
+    /* gridDimZ */         1,
+    /* blockDimX */        block,
+    /* blockDimY */        1,
+    /* blockDimZ */        1,
+    /* sharedMemBytes */   shared_bytes,
+    /* hStream */          stream,
+    /* kernelParams */     list_param.data(),
+    /* extra */            nullptr
+);
+```
+
+**Calls wrapped in error handling:** the wrapped call and the recovery block are both expanded. The wrapper's own arguments (the call, the status variable, the recovery block) carry no labels; the call inside it does.
 
 ```cpp
 IF_FAILED(
     this->__model()->get_state_at(
-        position,
-        num_items,
-        map_live,
-        list_free
+        /* position */    position,
+        /* num_items */   num_items,
+        /* map_live */    map_live,
+        /* list_free */   list_free
     ),
     retval,
     {
