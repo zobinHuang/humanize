@@ -52,6 +52,7 @@ return listRecords
 ## 3. Types and Variables
 
 - **No force unwrap, no force cast.** `value!` and `as!` are replaced by `guard let` / `if let` with an explicit throw or handled absent case. Implicitly unwrapped optionals (`T!`) are not declared.
+- **Core Foundation values are the one force-cast exception.** A CF type cannot be conditionally cast, so the wrapper that reads a `CFTypeRef` compares `CFGetTypeID` first and then uses `as!`, in exactly one place; callers above the wrapper never cast.
 - **Unwrap early with `guard`.** Preconditions at the top of a function are `guard ... else { throw / return }`, so the main path stays unindented.
 - **`let` by default, `var` only when mutated.**
 - **Value types first.** Records are `struct`s; a `class` is used only for identity or shared mutable state, and is `final` unless it is designed for subclassing.
