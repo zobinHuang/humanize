@@ -139,3 +139,20 @@ Two lines of code, 40\% faster.
 The change adds a prefetch hint to the inner loop of the attention kernel.
 It reduces the kernel's runtime by 40\%.
 ```
+
+## 11. Logical Order
+
+Text follows the order of the argument. A reader meets each idea after the ideas it depends on.
+
+- **Premise before conclusion.** State the problem before the solution. Report an observation before what it implies.
+- **Each sentence follows from the one before.** The link is either explicit, such as "because" or "as a result", or obvious from the content. A sentence that could move elsewhere in the paragraph without loss is in the wrong place or does not belong.
+- **One order per section.** The paragraphs of a section follow a single ordering, such as cause to effect or general to specific. Keep it to the end of the section.
+- **No afterthoughts.** When a point belongs earlier, move it there instead of appending it. Do not return to a point the text has already closed.
+
+```latex
+% Bad
+Our scheduler partitions the cache at runtime. Static partitioning wastes capacity. It also handles workload phases. Existing systems use static partitioning.
+
+% Good
+Existing systems partition the cache statically. Static partitioning leaves capacity idle when the workload changes phase. Our scheduler repartitions the cache at runtime to follow these phases.
+```
