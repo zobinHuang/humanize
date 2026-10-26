@@ -122,3 +122,20 @@ The bottleneck is not computation, but memory bandwidth.
 % Good
 The bottleneck is memory bandwidth: the kernel reaches 92\% of peak DRAM throughput and 18\% of peak FLOPs.
 ```
+
+## 10. No Number Slogans
+
+Do not compress a claim into a juxtaposition of numbers.
+
+- **No slogan fragments.** Phrases such as "2 lines of code, 40\% improvement" or "10\texttimes{} less memory, same accuracy" set two numbers side by side and leave the reader to infer the message. They do not say what changed or what each number measures.
+- **Write the claim as a full sentence.** Give it a subject and a verb, so the reader knows what changed and which metric each number belongs to.
+- **State the message instead of implying it.** If the point is that a small change yields a large gain, write that sentence and back each half with its number.
+
+```latex
+% Bad
+Two lines of code, 40\% faster.
+
+% Good
+The change adds a prefetch hint to the inner loop of the attention kernel.
+It reduces the kernel's runtime by 40\%.
+```
