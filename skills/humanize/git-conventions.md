@@ -1,8 +1,3 @@
----
-name: git-conventions
-description: "How to write commit messages and where to draw commit boundaries. Use when committing, writing a commit message, splitting work into commits or writing a pull request."
----
-
 # Git Conventions
 
 ## 1. Commit Message

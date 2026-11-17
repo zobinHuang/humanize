@@ -1,13 +1,8 @@
----
-name: python-coding-conventions
-description: "Python coding conventions for first-party code: docstrings, error handling, formatting, naming and structure. Use when writing, changing or reviewing Python code."
----
-
 # Python Coding Conventions
 
 ## 0. Scope and General Principles
 
-These conventions govern all first-party Python in the codebase (application, tools, language bindings' Python side, and tests). One codebase follows one style, even when it spans several repositories and languages; where a rule has a C++ counterpart, the two read the same (see [C++ Coding Conventions](../cpp-coding-conventions/SKILL.md)).
+These conventions govern all first-party Python in the codebase (application, tools, language bindings' Python side, and tests). One codebase follows one style, even when it spans several repositories and languages; where a rule has a C++ counterpart, the two read the same (see [C++ Coding Conventions](cpp-coding-conventions.md)).
 
 - **Third-party code is out of scope.** Vendored packages and samples carried verbatim must not be reformatted, so they can be re-synced with upstream.
 - **These rules win over local habit.** Where an older file's own style disagrees, follow this document (see [Section 7](#7-changing-code-that-predates-these-rules)).

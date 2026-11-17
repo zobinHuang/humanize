@@ -1,8 +1,3 @@
----
-name: readme-conventions
-description: "What a README says and what it leaves out. Use when writing or editing a repository's README."
----
-
 # README Conventions
 
 A README tells a newcomer what the repository is and how to use it, and nothing more.
