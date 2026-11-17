@@ -2,7 +2,7 @@
 
 ## 0. Scope and General Principles
 
-These conventions govern all first-party TypeScript in the codebase (application, libraries, tools, scripts and tests). One codebase follows one style, even when it spans several repositories and languages; where a rule has a Python or C++ counterpart, the two read the same (see [Python Coding Conventions](python-coding-conventions.md) and [C++ Coding Conventions](cpp-coding-conventions.md)).
+These conventions govern all first-party TypeScript in the codebase (application, libraries, tools, scripts and tests). One codebase follows one style, even when it spans several repositories and languages; where a rule has a Python or C++ counterpart, the two read the same (see [Python Coding Conventions](../python-coding-conventions/SKILL.md) and [C++ Coding Conventions](../cpp-coding-conventions/SKILL.md)).
 
 - **Third-party code is out of scope.** Vendored packages and generated code (API clients, schema bindings) must not be reformatted, so they can be regenerated or re-synced with upstream.
 - **These rules win over local habit.** Where an older file's own style disagrees, follow this document (see [Section 7](#7-changing-code-that-predates-these-rules)).

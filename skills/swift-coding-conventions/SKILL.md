@@ -2,7 +2,7 @@
 
 ## 0. Scope and General Principles
 
-These conventions govern all first-party Swift in the codebase (application, packages, command-line tools and tests). One codebase follows one style, even when it spans several repositories and languages; where a rule has a C++ or TypeScript counterpart, the two read the same (see [C++ Coding Conventions](cpp-coding-conventions.md) and [TypeScript Coding Conventions](typescript-coding-conventions.md)).
+These conventions govern all first-party Swift in the codebase (application, packages, command-line tools and tests). One codebase follows one style, even when it spans several repositories and languages; where a rule has a C++ or TypeScript counterpart, the two read the same (see [C++ Coding Conventions](../cpp-coding-conventions/SKILL.md) and [TypeScript Coding Conventions](../typescript-coding-conventions/SKILL.md)).
 
 - **Third-party code is out of scope.** Vendored packages and generated code must not be reformatted, so they can be re-synced with upstream.
 - **These rules win over local habit.** Where an older file's own style disagrees, follow this document (see [Section 7](#7-changing-code-that-predates-these-rules)).

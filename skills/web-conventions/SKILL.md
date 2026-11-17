@@ -2,7 +2,7 @@
 
 ## 0. Scope and General Principles
 
-These conventions govern all first-party web pages in the codebase (sites, documentation pages, dashboards and reports): their HTML and CSS source, and the content they present. Scripts follow the [TypeScript Coding Conventions](typescript-coding-conventions.md); where a rule here has a counterpart there, the two read the same.
+These conventions govern all first-party web pages in the codebase (sites, documentation pages, dashboards and reports): their HTML and CSS source, and the content they present. Scripts follow the [TypeScript Coding Conventions](../typescript-coding-conventions/SKILL.md); where a rule here has a counterpart there, the two read the same.
 
 - **Third-party code is out of scope.** Vendored libraries, generated bundles and framework scaffolding must not be reformatted, so they can be regenerated or re-synced with upstream.
 - **These rules win over local habit.** Where an older page's own style disagrees, follow this document (see [Section 8](#8-changing-code-that-predates-these-rules)).
@@ -182,7 +182,7 @@ A page is designed for every width it can be shown at, not for the one it was wr
 
 ### 7.5 Writing
 
-Page text follows the same rules as the [LaTeX Writing Conventions](latex-conventions.md#7-headings) for headings, tone and framing.
+Page text follows the same rules as the [LaTeX Writing Conventions](../latex-conventions/SKILL.md#7-headings) for headings, tone and framing.
 
 - **Headings name the topic in plain words.** No cryptic or clever headings such as "Two caches, two shared parts"; write the subject, e.g. "Sharing the L2 and the last-level cache across cores".
 - **Support claims with evidence.** No preaching ("clearly", "it is crucial to understand", "you must"); support every claim with a number, a citation, a demo or a screenshot, and let the reader draw the conclusion.
@@ -239,7 +239,7 @@ main h3::before {
 Every figure has a title, and the title is a short phrase that sums it up.
 
 - **Every figure has a title.** Charts, diagrams, screenshots and tables sit in a `figure` with a `figcaption`; no figure appears without one.
-- **The title is brief.** It names what is shown in a few words, the way the [LaTeX caption rule](latex-conventions.md#6-captions) does.
+- **The title is brief.** It names what is shown in a few words, the way the [LaTeX caption rule](../latex-conventions/SKILL.md#6-captions) does.
 - **No walkthrough in the title.** No explanation of panels, bars, lines, colours or markers, and no definitions of the quantities shown; those go in the surrounding text, axis labels or column headers.
 
 ```html

@@ -13,8 +13,8 @@ git submodule add https://github.com/zobinHuang/humanize.git humanize
 Then reference the conventions you need from your project's agent instruction file (`CLAUDE.md`, `AGENTS.md`, etc.):
 
 ```markdown
-@humanize/cpp-coding-conventions.md
-@humanize/git-conventions.md
+@humanize/skills/cpp-coding-conventions/SKILL.md
+@humanize/skills/git-conventions/SKILL.md
 ```
 
 Pull the latest conventions with `git submodule update --remote humanize`.
