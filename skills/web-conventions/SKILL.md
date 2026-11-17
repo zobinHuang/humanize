@@ -1,3 +1,8 @@
+---
+name: web-conventions
+description: "Conventions for web pages such as sites, documentation pages, dashboards and reports: their HTML, CSS and the content they present. Use when writing or changing a web page."
+---
+
 # Web Conventions
 
 ## 0. Scope and General Principles

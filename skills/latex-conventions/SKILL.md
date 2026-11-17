@@ -1,3 +1,8 @@
+---
+name: latex-conventions
+description: "Conventions for the prose of LaTeX documents such as papers, reports and theses. Use when writing or editing LaTeX prose."
+---
+
 # LaTeX Writing Conventions
 
 These rules govern the prose of every first-party LaTeX document (papers, reports, theses). They target the writing habits agents fall into most often.

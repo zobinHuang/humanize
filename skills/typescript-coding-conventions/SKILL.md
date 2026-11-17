@@ -1,3 +1,8 @@
+---
+name: typescript-coding-conventions
+description: "TypeScript coding conventions for first-party code: doc comments, error handling, types, formatting, naming, structure and asynchrony. Use when writing, changing or reviewing TypeScript code."
+---
+
 # TypeScript Coding Conventions
 
 ## 0. Scope and General Principles

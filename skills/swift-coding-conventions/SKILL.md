@@ -1,3 +1,8 @@
+---
+name: swift-coding-conventions
+description: "Swift coding conventions for first-party code: doc comments, error handling, types, formatting, naming, structure and concurrency. Use when writing, changing or reviewing Swift code."
+---
+
 # Swift Coding Conventions
 
 ## 0. Scope and General Principles

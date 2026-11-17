@@ -1,3 +1,8 @@
+---
+name: cpp-coding-conventions
+description: "C++ coding conventions for first-party code: comments, error handling, ownership, formatting, naming and structure. Use when writing, changing or reviewing C++ code."
+---
+
 # C++ Coding Conventions
 
 ## 0. Scope and General Principles

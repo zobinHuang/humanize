@@ -1,3 +1,8 @@
+---
+name: python-coding-conventions
+description: "Python coding conventions for first-party code: docstrings, error handling, formatting, naming and structure. Use when writing, changing or reviewing Python code."
+---
+
 # Python Coding Conventions
 
 ## 0. Scope and General Principles
